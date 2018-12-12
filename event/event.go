@@ -129,6 +129,11 @@ func (bus *Bus) Clear() map[string][]Consumer {
 	return tmp
 }
 
+// Return amount of the Bus consumers.
+func (bus *Bus) GetAmountConsumers() int {
+	return len(bus.consumers)
+}
+
 // Removes consumer subscribed to a given type and placed at a
 // given index. If it is the last consumer then the whole slice is removed,
 // otherwise a copy of slice is used, so concurrently publishing go-routines are not affected.
