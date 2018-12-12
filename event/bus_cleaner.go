@@ -24,7 +24,7 @@ type BusCleanerImpl struct {
 
 // Create new bus cleaner with defined clean up period
 func NewBusCleaner(bus *Bus, cleanUpPeriod time.Duration) *BusCleanerImpl {
-	return &BusCleanerImpl{bus: bus, cleanUpPeriod:cleanUpPeriod}
+	return &BusCleanerImpl{bus: bus, cleanUpPeriod: cleanUpPeriod}
 }
 
 // Clean up bus from temporary consumers with clean up period.

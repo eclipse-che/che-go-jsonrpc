@@ -36,8 +36,8 @@ package jsonrpcws
 import (
 	"net/http"
 
-	"github.com/gorilla/websocket"
 	"github.com/eclipse/che-go-jsonrpc"
+	"github.com/gorilla/websocket"
 )
 
 var (
@@ -53,7 +53,7 @@ var (
 
 	// default dialer that is used for WebSocket connection establishing
 	// may be changed by client if custom settings are needed
-    DefaultDialer = websocket.DefaultDialer
+	DefaultDialer = websocket.DefaultDialer
 )
 
 // Dial establishes a new client WebSocket connection.

@@ -19,10 +19,7 @@ import (
 
 const testCleanUpTimeOut = 10 * time.Millisecond
 
-var (
-	event = &testEvent{}
-	bus = NewBus()
-)
+var event = &testEvent{}
 
 // Test Consumer
 type testTmpConsumer struct {
@@ -45,6 +42,7 @@ func (*testEvent) Type() string {
 
 func TestBusCleanerShouldCleanOneTmpConsumerWhichIsDone(t *testing.T) {
 	tempConsumer := &testTmpConsumer{DoneState: false}
+	bus := NewBus()
 	busCleaner := NewBusCleaner(bus, testCleanUpTimeOut)
 
 	bus.Sub(tempConsumer, event.Type())
@@ -61,6 +59,7 @@ func TestBusCleanerShouldCleanOneTmpConsumerWhichIsDone(t *testing.T) {
 
 func TestBusCleanerShouldNotCleanNotTmpConsumers(t *testing.T) {
 	tempConsumer := &testTmpConsumer{DoneState: false}
+	bus := NewBus()
 	busCleaner := NewBusCleaner(bus, testCleanUpTimeOut)
 
 	bus.Sub(tempConsumer, event.Type())
